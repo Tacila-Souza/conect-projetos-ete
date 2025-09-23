@@ -1,0 +1,193 @@
+/* Variáveis de cores para manter a consistência com o repositório */
+:root {
+    --cor-primaria: #4A90E2; /* Azul vibrante (exemplo) */
+
+    --cor-fundo-claro: #F8F9FA; /* Cinza claro (exemplo) */
+    --cor-texto-escuro: #333; /* Preto (exemplo) */
+    --cor-borda-card: #E0E0E0; /* Cinza claro para bordas (exemplo) */
+    --cor-sombra: rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.sobre-container {
+    font-family: 'Arial', sans-serif; /* Use a fonte definida no seu repositório */
+    color: var(--cor-texto-escuro);
+    line-height: 1.6;
+    background-color: var(--cor-fundo-claro);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita barras de rolagem horizontais indesejadas */
+}
+
+.sobre-banner {
+    width: 100%;
+    /* Removendo height fixo para usar padding-top e manter proporção */
+    padding-top: 30%; /* Ex: 30% da largura para uma proporção 16:9 ou similar. Ajuste conforme sua imagem. */
+    background-image: url('../../imagens/equipe-completa.jpg'); /* Imagem do banner */
+    background-size: cover; /* Garante que a imagem cubra a área */
+    background-position: center center; /* Centraliza a imagem */
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden; /* Garante que a imagem não vaze */
+    /* Para telas muito grandes, podemos limitar a altura máxima do banner se ele ficar exagerado */
+    max-height: 500px; /* Exemplo de altura máxima para o banner */
+}
+
+/* Efeito overlay para o banner, se desejar */
+.sobre-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Overlay escuro semi-transparente */
+    z-index: 1;
+}
+
+.sobre-banner > * { /* Garante que o conteúdo dentro do banner fique acima do overlay */
+    z-index: 2;
+    position: relative;
+}
+
+.sobre-mensagem-diretor {
+    /* max-width: 900px;  Será controlado pela classe container-responsivo */
+    margin: 40px auto; /* Reduzido o espaçamento superior e inferior */
+    padding: 0 15px; /* Mantém o padding lateral do container-responsivo */
+    text-align: center;
+    font-size: 1.05em; /* Diminuído o tamanho da fonte */
+    color: var(--cor-texto-escuro);
+}
+
+.sobre-mensagem-diretor p {
+    font-style: italic;
+    border-left: 5px solid var(--cor-primaria);
+    padding-left: 20px;
+    margin: 0;
+    line-height: 1.8;
+}
+
+.sobre-equipe {
+    background-color: white;
+    padding-top: 40px; /* Diminuída a margem superior */
+    padding-bottom: 60px;
+    text-align: center;
+}
+
+.sobre-equipe h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--cor-primaria);
+}
+
+.equipe-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas padrão */
+    gap: 30px;
+    /* max-width: 1200px;  Será controlado pela classe container-responsivo */
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid var(--cor-borda-card);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 12px var(--cor-sombra);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* Remove a largura mínima para usar flex-basis no media query */
+    /* min-width: 180px; */
+    max-width: 100%;
+    box-sizing: border-box; /* Garante que padding e border não adicionem largura */
+}
+
+/* Removendo o efeito hover */
+.card:hover {
+    transform: none; /* Remove a translação */
+    box-shadow: 0 4px 12px var(--cor-sombra); /* Mantém a sombra padrão sem alteração */
+}
+
+.card-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px; /* Aumentado o espaço entre a foto e o nome */
+    border: none; /* **Removida a borda da imagem do card** */
+}
+
+.card h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: var(--cor-primaria);
+}
+
+.card p {
+    font-size: 1em;
+    color: #666;
+    margin: 0;
+}
+
+.sobre-convite {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    font-size: 1.2em;
+    width: 100%; /* Garante que o fundo ocupe 100% da largura */
+    box-sizing: border-box; /* Inclui padding na largura total */
+}
+
+.sobre-convite .container-responsivo {
+    /* Este container já tem width: 90%; max-width: 1200px; e margin: 0 auto; */
+    /* Não precisa adicionar padding-left/right aqui, pois já está na classe global */
+}
+
+.sobre-convite p {
+    margin: 0 auto;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 1024px) {
+    .equipe-cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    }
+
+    /* Target the specific last card if it's odd-numbered in a 2-column grid */
+    .equipe-cards > .card:last-child:nth-child(odd) {
+        grid-column: span 2; /* Make the card span both columns */
+        justify-self: center; /* Center the card horizontally within its spanned columns */
+    }
+}
+
+/* Ajuste para telas menores que 768px, onde você pode querer 1 coluna */
+@media (max-width: 768px) {
+    .sobre-banner {
+        padding-top: 50%; /* Aumenta a altura proporcional em mobile para melhor visualização */
+        max-height: 400px; /* Ajuste máximo para mobile */
+    }
+
+    .sobre-mensagem-diretor {
+        font-size: 0.95em;
+        margin: 30px auto;
+    }
+
+    .sobre-equipe h2 {
+        font-size: 2em;
+    }
+
+    .equipe-cards {
+        grid-template-columns: 1fr; /* 1 coluna */
+        /* Usar justify-content center no grid para centralizar o item, e não no card individual */
+        justify-items: center; /* Centraliza os itens do grid na coluna única */
+    }
+
+    .equipe-cards > .card {
+        width: 80%; /* **Define uma largura padrão para o card no mobile** */
+        max-width: 300px; /* **Largura máxima para não ficar muito grande em telas menores amplas** */
+        /* justify-self: center; // Não é mais necessário com justify-items: center no grid */
+    }
+}

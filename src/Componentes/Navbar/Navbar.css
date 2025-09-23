@@ -1,0 +1,238 @@
+/* --- Reset Global e Prevenção de Scroll Horizontal --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura */
+  overflow-x: hidden; /* Remove o scroll horizontal - Crucial para evitar barras indesejadas */
+  font-family: 'Inter', sans-serif; /* Fonte padrão, pode ser ajustada conforme seu projeto */
+}
+
+/* --- Top Bar (Div Superior Azul) --- */
+.top-bar {
+  background-color: #0A3DBF;
+  height: 22px;
+}
+
+/* --- Navbar Principal --- */
+.custom-navbar-pure-css {
+  background-color: white;
+  height: 65px; /* Altura FIXA da navbar */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+  display: flex;
+  align-items: center; /* Centraliza verticalmente o conteúdo */
+  padding: 0 20px; /* Padding nas laterais em desktop */
+  position: relative; /* Para posicionamento de elementos internos se necessário */
+  z-index: 1000; /* Garante que a navbar esteja acima de outros conteúdos */
+  width: 100%; /* Garante que a navbar ocupe 100% da largura disponível */
+}
+
+.navbar-container-pure-css {
+  width: 100%;
+  max-width: 1200px; /* Largura máxima para centralizar o conteúdo em telas grandes */
+  margin: 0 auto; /* Centraliza o container */
+  display: flex;
+  justify-content: space-between; /* Espaça logo e links/hambúrguer */
+  align-items: center; /* Centraliza verticalmente */
+  height: 100%; /* Ocupa 100% da altura da navbar pai */
+}
+
+/* --- Logo (Link <a> e Imagem <img>) --- */
+.navbar-logo-link {
+  display: flex; /* Para alinhar a imagem internamente se precisar */
+  align-items: center;
+  height: 100%; /* Garante que o link ocupe a altura disponível na navbar */
+}
+
+.navbar-logo-image {
+  max-height: 100%; /* A imagem não excederá a altura do link/navbar */
+  width: auto; /* Mantém a proporção */
+  display: block; /* Remove o espaço extra abaixo da imagem */
+  /* Tamanho inicial para desktop (maior que o anterior) */
+  max-width: 200px; /* Aumentado para desktop */
+}
+
+/* --- Links de Navegação (Desktop) --- */
+.navbar-links-desktop {
+  display: flex; /* Por padrão visível em desktop */
+  gap: 30px; /* Espaço entre os links */
+}
+
+.nav-link-pure-css {
+  color: #333; /* Cor do texto padrão */
+  font-weight: 500; /* Fonte mais fina */
+  text-decoration: none; /* Remove sublinhado padrão */
+  padding: 5px 0; /* Pequeno padding para área de clique */
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.nav-link-pure-css:hover {
+  color: #0A3DBF; /* Cor azul no hover */
+}
+
+/* Estilo para a página ativa */
+.nav-link-pure-css.active-page-pure-css {
+  color: #0A3DBF; /* Cor azul para a página selecionada */
+  font-weight: bolder; /* Espessura um pouco maior */
+  text-decoration: underline; /* Sublinha para maior destaque */
+  text-underline-offset: 5px; /* Afasta o sublinhado do texto */
+}
+
+/* --- Botão de Menu Hambúrguer --- */
+.hamburger-menu-button {
+  display: none; /* Por padrão escondido em desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Espaço entre as linhas do hambúrguer */
+  position: relative; /* Para a sombra */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para o botão hambúrguer */
+  border-radius: 4px; /* Leve arredondamento */
+}
+
+.hamburger-menu-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(10, 61, 191, 0.4); /* Sombra de foco azulada */
+}
+
+.hamburger-icon-line {
+  display: block;
+  width: 30px; /* Largura da linha do hambúrguer */
+  height: 3px; /* Espessura da linha */
+  background-color: #0A3DBF; /* Cor azul para as linhas */
+  border-radius: 2px; /* Cantos arredondados */
+  transition: all 0.3s ease; /* Transição suave */
+}
+
+/* --- Menu Lateral (Sidebar / Offcanvas-like) --- */
+.sidebar-menu {
+  position: fixed;
+  top: 0;
+  left: -280px; /* Esconde o menu para a esquerda */
+  width: 250px; /* Largura do menu */
+  height: 100%;
+  background-color: white;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2); /* Sombra para o menu lateral */
+  transition: left 0.3s ease-in-out; /* Animação de slide */
+  z-index: 1001; /* Acima da navbar */
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-menu.show {
+  left: 0; /* Mostra o menu */
+}
+
+.sidebar-header {
+  background-color: #0A3DBF;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.sidebar-close-button {
+  background: none;
+  border: none;
+  color: white; /* Cor do X branco */
+  font-size: 1.5rem; /* Tamanho do X */
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1; /* Garante que o X fique centralizado */
+}
+
+.sidebar-close-button:hover {
+  opacity: 0.8;
+}
+
+.sidebar-body {
+  flex-grow: 1; /* Ocupa o espaço restante */
+  padding: 10px 0;
+  overflow-y: auto; /* Adiciona scroll se o conteúdo for muito grande */
+}
+
+.sidebar-body ul {
+  list-style: none; /* Remove marcadores de lista */
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-body li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Linha cinza sutil entre links */
+}
+
+.sidebar-body li:last-child {
+  border-bottom: none; /* Remove linha do último item */
+}
+
+.sidebar-nav-link {
+  display: block; /* Ocupa a largura total do item de lista */
+  color: #333;
+  padding: 12px 20px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-nav-link:hover {
+  background-color: #f0f0f0;
+  color: #0A3DBF;
+}
+
+.sidebar-nav-link.active-page-pure-css {
+  background-color: #e0e0e0; /* Fundo mais claro para a página ativa */
+  color: #0A3DBF;
+  font-weight: bolder;
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* REGRA CRUCIAL: Mostra o hambúrguer e esconde links de desktop APENAS abaixo de 760px */
+@media (max-width: 759px) { /* Exibe o hambúrguer quando a tela for MENOR que 760px */
+  .navbar-links-desktop {
+    display: none; /* Esconde os links de navegação normais */
+  }
+
+  .hamburger-menu-button {
+    display: flex; /* Mostra o botão hambúrguer */
+  }
+
+  .custom-navbar-pure-css {
+    padding: 0 15px; /* Ajusta o padding da navbar em telas menores */
+  }
+
+  .navbar-logo-image {
+    max-width: 180px; /* Logo menor para mobile */
+  }
+}
+
+/* REGRA CRUCIAL: Mantém visualização de desktop e esconde hambúrguer ACIMA de 760px */
+@media (min-width: 760px) {
+  .hamburger-menu-button {
+    display: none; /* Esconde o botão hambúrguer em desktop */
+  }
+
+  .navbar-links-desktop {
+    display: flex; /* Garante que os links de navegação normais estejam visíveis */
+  }
+  /* Tamanho da logo em desktop, mantendo a responsividade de altura fixa da navbar */
+  .navbar-logo-image {
+    max-width: 250px; /* Aumentado para desktop, ajuste conforme necessário */
+  }
+}
+
+/* Opcional: Ajuste para telas muito pequenas, se a logo ainda estiver grande */
+@media (max-width: 480px) {
+  .navbar-logo-image {
+    max-width: 180px; /* Reduz ainda mais para telas de celular pequenas */
+  }
+}

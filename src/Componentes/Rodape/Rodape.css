@@ -1,0 +1,45 @@
+.rodape {
+  background-color: #0a3dbf; /* azul escuro */
+  color: #ffffff; /* texto branco */
+  font-family: 'Poppins', sans-serif;
+  padding: 1.5rem 1rem;
+}
+
+.rodape-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.rodape-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 1 200px; /* Responsivo: mínimo 200px, cresce se der */
+  justify-content: center;
+}
+
+.rodape-item svg { /* Seleciona todos os SVGs dentro de .rodape-item, que são os seus ícones */
+  font-size: 1.5rem; /* Ajuste este valor para o tamanho desejado. Experimente 1.2rem, 1.5rem ou 2rem. */
+}
+
+.rodape-item a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+.rodape-item a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .rodape-item {
+    justify-content: center;
+  }
+}

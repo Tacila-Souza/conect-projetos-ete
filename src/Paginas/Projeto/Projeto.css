@@ -1,0 +1,247 @@
+/* src/Paginas/Projeto/projeto.css */
+
+/* Defina suas cores aqui ou importe de um arquivo de variáveis global */
+:root {
+    /* Use as cores do seu tema/paleta. Este é um exemplo: */
+    --cor-principal-azul: #0056b3; /* Um azul mais forte para títulos, similar a outras páginas */
+    --cor-secundaria-azul: #5C7DAF; /* Azul para ícones/detalhes */
+    --cor-texto-claro: #FFFFFF;
+    --cor-texto-escuro: #333333;
+    --cor-fundo-claro: #F5F7FA;
+    --cor-card-fundo: #FFFFFF;
+    --cor-borda-card: #E0E0E0;
+    --cor-texto-secundario: #666; /* Para descrição e metadados */
+    --cor-destaque-curso: #0056B3; /* Um azul de destaque para o curso */
+}
+
+/* Estilos globais para a página de projetos se houver um wrapper */
+.projetos-page-wrapper {
+    background-color: var(--cor-fundo-claro);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container principal da página (consistente com "Sobre") */
+.container {
+    max-width: 1200px;
+    margin: 40px auto; /* Espaçamento desktop */
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+/* Título da página */
+.projetos-titulo {
+    color: var(--cor-principal-azul); /* Cor do título das outras páginas */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.8em;
+    font-weight: bold;
+}
+
+/* Estilos da lista de projetos */
+.lista-projetos {
+    display: grid;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* Estilos do cartão de projeto */
+.card-projeto {
+    background-color: var(--cor-card-fundo);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card-projeto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Tamanho da imagem/placeholder */
+.imagem-placeholder {
+    width: 120px; /* Aumentar um pouco a imagem no desktop */
+    height: 120px; /* Aumentar um pouco a imagem no desktop */
+    background-color: #EBF2F7;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.imagem-placeholder svg {
+    width: 80px; /* Ajustar tamanho do ícone SVG no desktop */
+    height: 80px; /* Ajustar tamanho do ícone SVG no desktop */
+    fill: var(--cor-secundaria-azul);
+}
+
+.conteudo {
+    flex-grow: 1;
+}
+
+.titulo-card {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: var(--cor-principal-azul);
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.meta-card {
+    font-size: 0.95em;
+    color: var(--cor-texto-secundario);
+    margin-left: 10px;
+}
+
+.curso-card {
+    font-size: 1.05em; /* Levemente maior */
+    color: var(--cor-destaque-curso); /* Cor de destaque para o curso */
+    margin-bottom: 12px; /* Aumentar espaçamento entre curso e descrição */
+    margin-top: 0;
+}
+
+.curso-label {
+    color: var(--cor-texto-escuro); /* Cor normal para "Curso:" */
+    font-weight: normal; /* "Curso:" sem negrito */
+}
+
+.descricao-card {
+    font-size: 0.95em; /* Diminuir levemente o texto */
+    line-height: 1.5; /* Ajustar espaçamento entre linhas */
+    color: var(--cor-texto-escuro);
+    text-align: justify;
+}
+
+/* Estilos da paginação */
+.paginacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 15px;
+    font-size: 1em;
+    color: var(--cor-principal-azul);
+}
+
+.paginacao-resultado {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.paginacao-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.paginacao-botao {
+    background-color: var(--cor-card-fundo);
+    border: 1px solid var(--cor-borda-card);
+    color: var(--cor-principal-azul);
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.05em;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+.paginacao-botao:hover:not(.active) {
+    background-color: var(--cor-fundo-claro);
+    border-color: var(--cor-principal-azul);
+    transform: translateY(-2px);
+}
+
+.paginacao-botao.active {
+    background-color: var(--cor-principal-azul);
+    color: var(--cor-texto-claro);
+    border-color: var(--cor-principal-azul);
+    cursor: default;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.paginacao-botao:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .projetos-titulo {
+        font-size: 2em;
+        text-align: left; /* Alinhar título na esquerda no mobile */
+        margin-bottom: 20px;
+        
+    }
+
+    .card-projeto {
+        flex-direction: column;
+        align-items: flex-start; /* Alinhar tudo à esquerda no mobile */
+        text-align: left; /* Alinhar texto à esquerda no mobile */
+        padding: 15px;
+    }
+
+    /* Imagem maior no mobile também */
+    .imagem-placeholder {
+        width: 100px; /* Aumentar um pouco a imagem no mobile */
+        height: 100px; /* Aumentar um pouco a imagem no mobile */
+        margin-bottom: 15px;
+        align-self: center; /* Centraliza a imagem mesmo com align-items: flex-start */
+    }
+
+    .imagem-placeholder svg {
+        width: 70px; /* Ajustar tamanho do ícone SVG no mobile */
+        height: 70px; /* Ajustar tamanho do ícone SVG no mobile */
+    }
+
+    .titulo-card {
+        font-size: 1.2em;
+    }
+
+    .meta-card,
+    .descricao-card {
+        font-size: 0.88em; /* Diminuir um pouco mais o texto no mobile */
+        text-align: left;
+    }
+
+    .curso-card {
+        font-size: 0.95em; /* Ajustar tamanho do curso no mobile */
+        text-align: left;
+        margin-bottom: 10px; /* Ajustar espaçamento no mobile */
+    }
+
+    .descricao-card {
+        line-height: 1.4; /* Ajustar espaçamento entre linhas no mobile */
+    }
+
+    .paginacao {
+        margin-top: 30px;
+        font-size: 0.9em;
+    }
+
+    .paginacao-resultado {
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    .paginacao-botoes {
+        justify-content: center;
+    }
+
+    .paginacao-botao {
+        padding: 8px 14px;
+        font-size: 0.95em;
+    }
+}

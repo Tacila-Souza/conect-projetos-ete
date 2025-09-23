@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variáveis de Cores e Fontes */
+:root {
+    --cor-primaria: #0a3dbf; /* Azul escuro principal */
+    
+    --cor-texto-escuro: #343436; /* Texto geral escuro */
+    --cor-texto-claro: #ffffff; /* Texto claro */
+    --cor-borda-destaque: #d6e8ff; /* Borda de destaque */
+    --sombra-leve: 0 2px 6px rgba(10, 61, 191, 0.15);
+    --sombra-media: 0 3px 8px rgba(10, 61, 191, 0.25);
+    --fonte-principal: 'Poppins', sans-serif;
+}
+
+body, html {
+    font-family: var(--fonte-principal);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cursos-pagina {
+    padding: 60px 40px; /* Espaçamento ajustado para desktop, similar à página Sobre */
+    background-color: var(--cor-secundaria); /* Fundo azul claro padrão */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-principal {
+    font-size: 2rem;
+    color: var(--cor-primaria);
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+}
+
+
+
+.container-responsivo {
+    width: 90%; /* Porcentagem para ser responsivo */
+    max-width: 1200px; /* Largura máxima para não esticar demais em telas muito grandes */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 0 15px; /* Adiciona um pequeno padding nas laterais para não colar na borda em telas menores */
+}
+
+.secao-introducao {
+    color: var(--cor-texto-escuro);
+    font-size: 1.05rem;
+    text-align: center;
+    padding: 0 25px; /* Padding maior */
+    border-radius: 12px; /* Bordas mais arredondadas */
+    margin-bottom: 30px; /* Mais espaço abaixo da seção */
+    /*box-shadow: var(--sombra-media);     width: 100%; Sombra mais evidente */
+    line-height: 1.7; /* Melhor legibilidade */
+}
+
+.texto-introducao {
+    margin: 0;
+}
+
+.lista-cursos {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Espaço maior entre os cards */
+    width: 100%;
+    max-width: 1200px;
+}
+
+.cartao-curso {
+    display: flex;
+    align-items: center; /* Alinha o conteúdo verticalmente */
+    background-color: var(--cor-texto-claro);
+    border-radius: 12px; /* Bordas mais arredondadas */
+    padding: 35px; /* Padding maior no card */
+    box-shadow: var(--sombra-media);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.cartao-curso:hover {
+    transform: translateY(-10px); /* Efeito hover mais pronunciado */
+    box-shadow: 0 8px 20px rgba(10, 61, 191, 0.4);
+}
+
+.cartao-imagem-container {
+    flex-shrink: 0;
+    width: 400px; /* Largura maior para a imagem */
+    height: 280px; /* Altura maior para a imagem */
+    margin-right: 40px; /* Mais espaço à direita da imagem */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cartao-imagem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cartao-conteudo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espaçamento diminuído entre os textos */
+}
+
+.cartao-titulo {
+    font-size: 2rem;
+    color: var(--cor-primaria);
+    margin: 0;
+    font-weight: 600;
+}
+
+.cartao-horario {
+    font-size: 1.1rem;
+    color: var(--cor-texto-escuro);
+    margin: 0;
+    font-weight: 500;
+}
+
+.cartao-descricao,
+.cartao-cursos-oferecidos {
+    margin: 0;
+    color: var(--cor-texto-escuro);
+    font-size: 1rem; /* Levemente menor para compactar */
+    line-height: 1.5; /* Linha de altura ajustada */
+}
+
+.cartao-info-destaque {
+    background-color: var(--cor-borda-destaque);
+    border-left: 6px solid var(--cor-primaria);
+    padding: 15px 25px; /* Padding maior */
+    margin-top: 20px; /* Mais espaço acima */
+    border-radius: 10px;
+    font-size: 1.05rem;
+    color: var(--cor-primaria);
+    box-shadow: var(--sombra-leve);
+}
+
+.info-destaque-texto {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Layout reverso para cards alternados */
+.cartao-curso-reverso {
+    flex-direction: row-reverse;
+}
+
+.cartao-curso-reverso .cartao-imagem-container {
+    margin-left: 40px; /* Mais espaço à esquerda da imagem no reverso */
+    margin-right: 0;
+}
+
+/* --- Responsividade --- */
+
+/* Tablets (max-width: 992px) */
+@media (max-width: 992px) {
+    .cursos-pagina {
+        padding: 50px 30px;
+    }
+
+    .titulo-principal {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+
+
+
+    .lista-cursos {
+        gap: 40px;
+    }
+
+    .cartao-curso {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .cartao-imagem-container {
+        width: 100%;
+        max-width: 400px;
+        height: 220px;
+        margin: 0 0 30px 0; /* Espaço abaixo da imagem */
+    }
+
+    .cartao-titulo {
+        font-size: 1.8rem;
+    }
+
+    .cartao-horario,
+    .cartao-descricao,
+    .cartao-cursos-oferecidos {
+        font-size: 0.95rem;
+    }
+
+    .cartao-info-destaque {
+        font-size: 1rem;
+    }
+
+    /* Ajuste para o layout reverso em tablets (todos empilham) */
+    .cartao-curso-reverso {
+        flex-direction: column;
+    }
+
+    .cartao-curso-reverso .cartao-imagem-container {
+        margin: 0 0 30px 0;
+    }
+}
+
+/* Celulares (max-width: 600px) */
+@media (max-width: 600px) {
+    .cursos-pagina {
+        padding: 40px 15px;
+    }
+
+
+
+
+    .lista-cursos {
+        gap: 30px;
+    }
+
+    .cartao-curso {
+        padding: 20px;
+    }
+
+    .cartao-imagem-container {
+        height: 180px;
+        margin-bottom: 20px;
+    }
+
+    .cartao-titulo {
+        font-size: 1.5rem;
+    }
+
+    .cartao-horario,
+    .cartao-descricao,
+    .cartao-cursos-oferecidos {
+        font-size: 0.9rem;
+    }
+
+    .cartao-info-destaque {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+        margin-top: 15px;
+    }
+}

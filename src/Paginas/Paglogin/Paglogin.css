@@ -1,0 +1,54 @@
+/* Remove o espaçamento superior do body, se houver, e garante que o background seja responsivo */
+body {
+  margin-top: 0 !important; /* Garante que não haja margem superior no body */
+  padding-top: 0 !important; /* Garante que não haja padding superior no body */
+}
+
+/* Estilo para o background responsivo e ocupando a altura total */
+.paglogin-background {
+  background-color: #dfe8ff; /* Mantém a cor de fundo */
+  min-height: calc(100vh - 56px); /* 100% da altura da viewport menos a altura da Navbar (geralmente 56px para Bootstrap) */
+  display: flex; /* Para centralizar o conteúdo verticalmente, se necessário */
+  align-items: center; /* Alinha o conteúdo ao centro verticalmente */
+  padding-bottom: 20px; /* Adiciona um pequeno padding inferior para telas menores */
+}
+
+/* Container para centralizar o formulário */
+.paglogin-container {
+  flex-grow: 1; /* Permite que o container cresça e ocupe o espaço disponível */
+  display: flex; /* Para alinhar o conteúdo do container */
+  align-items: center; /* Alinha o conteúdo ao centro verticalmente dentro do container */
+}
+
+
+/* Sombras nos campos de texto */
+.form-control-shadow {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para os campos de texto */
+  border: 1px solid #ced4da; /* Borda padrão para manter a consistência */
+}
+
+/* Estilo para o botão "Entrar" */
+.paglogin-btn-entrar {
+  width: 120px; /* Um pouco maior que o original para melhor visualização */
+  /* margin: 0 auto; já foi substituído pelo d-flex justify-content-center no HTML */
+}
+
+/* Mantém os estilos existentes */
+p {
+  display: inline;
+}
+
+input {
+  font-weight: 600; /* Espessura da fonte nos inputs */
+}
+
+a {
+  display: inline;
+}
+
+/* Opcional: Adicione um media query para responsividade se a navbar tiver altura variável */
+@media (max-width: 768px) {
+  .paglogin-background {
+    min-height: calc(100vh - 56px); /* Ajuste se a altura da Navbar mudar em telas menores */
+  }
+}

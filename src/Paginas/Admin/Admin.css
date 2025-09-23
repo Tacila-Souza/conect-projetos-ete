@@ -1,0 +1,189 @@
+/* --- Seção Geral da Página Admin --- */
+.admin-page-wrapper {
+  /* O background-color e min-height já estavam inline no JS, mas é bom ter aqui caso mude */
+  background-color: #dfe8ff;
+  min-height: 100vh;
+  display: flex; /* Usar flexbox para centralizar o conteúdo */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: flex-start; /* Alinha ao topo verticalmente, ou 'center' se preferir */
+  padding: 40px 20px; /* Padding geral para a página, responsivo */
+  box-sizing: border-box; /* Garante que padding não aumente a largura */
+}
+
+.admin-container {
+  width: 100%;
+  max-width: 960px; /* Equivalente a um container de largura fixa do Bootstrap */
+  margin: 0 auto; /* Centraliza o container */
+  box-sizing: border-box;
+}
+
+.admin-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  padding: 30px; /* Padding interno */
+  box-sizing: border-box;
+}
+
+.admin-title {
+  font-size: 2.2rem;
+  color: #343a40;
+  margin-bottom: 30px; /* Margem inferior */
+  text-align: center; /* Centraliza o título */
+}
+
+/* --- Seção de Botões --- */
+.admin-buttons-group {
+  display: flex; /* Para os botões ficarem lado a lado */
+  gap: 15px; /* Espaçamento entre os botões */
+  margin-bottom: 30px; /* Margem inferior */
+  flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas menores */
+  justify-content: center; /* Centraliza os botões quando quebram a linha */
+}
+
+.admin-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap; /* Evita que o texto do botão quebre */
+  flex-grow: 1; /* Permite que os botões cresçam para preencher espaço */
+  min-width: 180px; /* Largura mínima para botões */
+}
+
+.admin-button:hover {
+  transform: translateY(-2px); /* Pequeno efeito de levantamento no hover */
+}
+
+/* Estilos de cores para os botões */
+.primary-button {
+  background-color: #28a745;
+  color: #ffffff;
+}
+.primary-button:hover {
+  background-color: #1a702f;
+}
+
+.warning-button {
+  background-color: #007bff;
+  color: #ffffff; /* Cor do texto para contraste */
+}
+.warning-button:hover {
+  background-color: #0056b3;
+}
+
+.danger-button {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+.danger-button:hover {
+  background-color: #bd2130;
+}
+
+/* --- Seção da Barra de Pesquisa --- */
+.admin-search-group {
+  display: flex; /* Input e botão de pesquisa lado a lado */
+  margin-bottom: 30px; /* Margem inferior */
+  width: 100%;
+}
+
+.admin-search-input {
+  flex-grow: 1; /* Ocupa o máximo de espaço possível */
+  padding: 10px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 6px 0 0 6px; /* Bordas arredondadas apenas na esquerda */
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-search-input:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.admin-search-button {
+  padding: 10px 15px;
+  border: 1px solid #6c757d;
+  border-left: none; /* Remove a borda esquerda para se juntar ao input */
+  border-radius: 0 6px 6px 0; /* Bordas arredondadas apenas na direita */
+  background-color: #6c757d;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex; /* Para centralizar o ícone */
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.admin-search-button:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* Estilo para o ícone de pesquisa (Lucide-React) */
+.admin-search-button svg {
+  width: 20px; /* Tamanho do ícone */
+  height: 20px;
+}
+
+/* --- Responsividade (Media Queries) --- */
+
+/* Para telas menores que 768px (equivalente a 'md' do Bootstrap) */
+@media (max-width: 768px) {
+  .admin-page-wrapper {
+    padding: 30px 15px; /* Reduz padding geral em telas menores */
+  }
+
+  .admin-card {
+    padding: 20px; /* Reduz padding interno do card */
+  }
+
+  .admin-title {
+    font-size: 1.8rem; /* Reduz o tamanho do título */
+    margin-bottom: 20px;
+  }
+
+  .admin-buttons-group {
+    flex-direction: column; /* Botões um abaixo do outro */
+    gap: 10px; /* Espaçamento entre eles */
+  }
+
+  .admin-button {
+    width: 100%; /* Ocupa a largura total */
+    min-width: unset; /* Remove largura mínima */
+  }
+
+  .admin-search-group {
+    flex-direction: column; /* Barra de pesquisa empilhada */
+  }
+
+  .admin-search-input {
+    border-radius: 6px; /* Todas as bordas arredondadas */
+    margin-bottom: 10px; /* Espaçamento entre input e botão */
+  }
+
+  .admin-search-button {
+    border-radius: 6px; /* Todas as bordas arredondadas */
+    border-left: 1px solid #6c757d; /* Restaura a borda esquerda */
+    width: 100%; /* Ocupa a largura total */
+  }
+}
+
+/* Para telas muito pequenas, abaixo de 576px (equivalente a 'sm' do Bootstrap) */
+@media (max-width: 576px) {
+  .admin-page-wrapper {
+    padding: 20px 10px;
+  }
+
+  .admin-card {
+    padding: 15px;
+  }
+
+  .admin-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+}/*html , body {background-color:#ffffff;}*/

@@ -1,0 +1,162 @@
+
+        /* --- Reset Global e Prevenção de Scroll Horizontal --- */
+        html, body {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura */
+          overflow-x: hidden; /* Remove o scroll horizontal */
+          font-family: 'Inter', sans-serif; /* Fonte padrão, pode ser ajustada conforme seu projeto */
+        }
+
+        /* --- Container Principal para Fundo e Altura Total --- */
+        .login-page-wrapper {
+         
+          /* min-height garante que o container ocupe no mínimo 100% da altura da viewport */
+          /* Subtraímos 56px, uma altura comum para Navbar, para que o fundo comece abaixo dela. */
+          /* Ajuste a variável --navbar-height se a sua Navbar tiver uma altura diferente. */
+          /* Nota: Como a Navbar foi comentada, pode-se usar 100vh se ela não for exibida */
+          min-height: calc(100vh - var(--navbar-height, 0px)); /* Ajustado para 0px se Navbar não estiver presente */
+          display: flex;
+          justify-content: center; /* Centraliza o conteúdo horizontalmente */
+          align-items: flex-start; /* Alinha o conteúdo ao topo verticalmente */
+          padding: 5px 0; /* Adiciona um padding vertical para espaçamento superior/inferior */
+        }
+
+        /* --- Container para o Conteúdo Central do Formulário --- */
+        .login-content-container {
+          width: 100%;
+          max-width: 500px; /* Limita a largura máxima para melhor legibilidade em telas grandes */
+          padding: 0 20px; /* Adiciona padding horizontal para espaçamento em telas menores */
+          margin-top: 20px; /* Margem superior para posicionar o card abaixo da Navbar (se ela estivesse ativa) */
+        }
+
+        /* --- Estilo do Card do Formulário --- */
+        .login-form-card {
+          background-color: #fff; /* Fundo branco para o card do formulário */
+          padding: 30px;
+          border-radius: 8px; /* Bordas arredondadas */
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra suave para o card */
+        }
+
+        /* --- Título "Fazer Login" --- */
+        .login-title {
+          text-align: center;
+          margin-bottom: 15px;
+          color: #4A90E2; /* Cor azul similar ao seu #hazul */
+        }
+
+        /* --- Grupo de Campos (Label e Input) --- */
+        .form-group {
+          margin-bottom: 25px; /* Espaçamento entre os grupos de campos */
+        }
+
+        .form-label {
+          display: block; /* Garante que o label ocupe sua própria linha */
+          margin-bottom: 8px; /* Espaçamento entre o label e o campo de texto */
+          font-weight: normal; /* Peso da fonte para labels, pode ser ajustado */
+          color: #333; /* Cor do texto do label */
+        }
+
+        .form-input {
+          width: 100%; /* Ocupa a largura total do container */
+          padding: 12px 15px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-weight: 600; /* Peso da fonte para o texto digitado */
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra nos campos de texto */
+          outline: none; /* Remove a borda de foco padrão do navegador */
+        }
+
+        .form-input:focus {
+          border-color: #007bff; /* Borda azul ao focar */
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Efeito de "glow" ao focar */
+        }
+
+        /* --- Grupo do Checkbox "Lembrar-me" --- */
+        .form-checkbox-group {
+          margin-bottom: 25px;
+        }
+
+        .form-checkbox-label {
+          display: flex; /* Permite alinhar checkbox e texto */
+          align-items: center;
+          gap: 8px; /* Espaçamento entre o checkbox e o texto */
+        }
+
+        .form-checkbox-input {
+          /* Estilos básicos para o checkbox */
+          width: 16px;
+          height: 16px;
+        }
+
+        /* --- Container e Botão "Entrar" --- */
+        .form-button-container {
+          text-align: center; /* Centraliza o botão dentro do seu container */
+          margin-top: 30px;
+          margin-bottom: 30px;
+        }
+
+        .login-btn {
+          padding: 12px 25px;
+          background-color: #007bff; /* Cor azul do botão */
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background-color 0.3s ease; /* Transição suave no hover */
+          width: 120px; /* Largura fixa para o botão */
+        }
+
+        .login-btn:hover {
+          background-color: #0056b3; /* Cor mais escura no hover */
+        }
+
+        /* --- Grupos de Links (Esqueceu a senha?, Crie sua conta) --- */
+        .login-link-group {
+          text-align: center; /* Centraliza o texto dentro do grupo */
+          margin-top: 20px;
+          margin-bottom: 10px;
+          display: flex; /* Usa flexbox para controlar o layout dos elementos internos */
+          justify-content: center; /* Centraliza horizontalmente o texto e o link */
+          align-items: center; /* Alinha verticalmente */
+          flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas pequenas */
+        }
+
+        .login-text,
+        .login-link {
+          color: #6c757d; /* Cor similar ao text-body-secondary */
+          text-decoration: none;
+          display: inline-block; /* Garante que eles respeitem as margens */
+          margin: 5px; /* Pequena margem para separar texto e link */
+        }
+
+        .login-link {
+          color: #007bff; /* Cor do link */
+          font-weight: bold;
+        }
+
+        .login-link:hover {
+          text-decoration: underline; /* Sublinha no hover */
+        }
+
+        /* --- Media Query para Dispositivos Móveis --- */
+        @media (max-width: 768px) {
+          .login-link-group {
+            flex-direction: column; /* Em telas pequenas, empilha o texto e o link verticalmente */
+            align-items: center; /* Centraliza os itens quando empilhados */
+          }
+
+          .login-text,
+          .login-link {
+            margin: 5px 0; /* Ajusta a margem vertical para os itens empilhados */
+          }
+
+          .login-content-container {
+            margin-top: 20px; /* Reduz a margem superior em mobile */
+          }
+
+          .login-form-card {
+            padding: 20px; /* Reduz o padding do card em mobile */
+          }
+        }

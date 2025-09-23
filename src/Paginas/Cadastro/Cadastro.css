@@ -1,0 +1,177 @@
+/* --- Reset Global e Prevenção de Scroll Horizontal --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura */
+  overflow-x: hidden; /* Remove o scroll horizontal */
+  font-family: 'Inter', sans-serif; /* Fonte padrão, pode ser ajustada conforme seu projeto */
+}
+
+/* --- Container Principal para Fundo e Altura Total --- */
+.cadastro-page-wrapper {
+  /* min-height garante que o container ocupe no mínimo 100% da altura da viewport */
+  min-height: calc(100vh - var(--navbar-height, 0px)); /* Ajustado para 0px se Navbar não estiver presente */
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: flex-start; /* Alinha o conteúdo ao topo verticalmente */
+  padding: 20px 0; /* Adiciona um padding vertical para espaçamento superior/inferior */
+}
+
+/* --- Container para o Conteúdo Central do Formulário --- */
+.cadastro-content-container {
+  width: 100%;
+  max-width: 500px; /* Limita a largura máxima para melhor legibilidade em telas grandes */
+  padding: 0 20px; /* Adiciona padding horizontal para espaçamento em telas menores */
+  margin-top: 40px; /* Margem superior para posicionar o card abaixo da Navbar (se ela estivesse ativa) */
+}
+
+/* --- Estilo do Card do Formulário --- */
+.cadastro-form-card {
+  background-color: #fff; /* Fundo branco para o card do formulário */
+  padding: 30px;
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra suave para o card */
+}
+
+/* --- Título "Cadastro" --- */
+.cadastro-title {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: #3b5998; /* Cor azul similar ao seu #hazul */
+}
+
+/* --- Grupo de Campos (Label e Input) --- */
+.form-group {
+  margin-bottom: 25px; /* Espaçamento entre os grupos de campos */
+}
+
+.form-label {
+  display: block; /* Garante que o label ocupe sua própria linha */
+  margin-bottom: 8px; /* Espaçamento entre o label e o campo de texto */
+  font-weight: normal; /* Peso da fonte para labels, pode ser ajustado */
+  color: #333; /* Cor do texto do label */
+}
+
+.form-input {
+  width: 100%; /* Ocupa a largura total do container */
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-weight: 600; /* Peso da fonte para o texto digitado */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra nos campos de texto */
+  outline: none; /* Remove a borda de foco padrão do navegador */
+}
+
+.form-input:focus {
+  border-color: #007bff; /* Borda azul ao focar */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Efeito de "glow" ao focar */
+}
+
+/* --- Container e Botão "Cadastrar" --- */
+.form-button-container {
+  text-align: center; /* Centraliza o botão dentro do seu container */
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.cadastro-btn {
+  padding: 12px 25px;
+  background-color: #007bff; /* Cor azul do botão, igual à PagLogin */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transição suave no hover */
+  width: 120px; /* Largura fixa para o botão, igual à PagLogin */
+}
+
+.cadastro-btn:hover {
+  background-color: #0056b3; /* Cor mais escura no hover */
+}
+
+/* --- Estilos para a Caixa de Mensagem (substitui alert) --- */
+.message-box {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #fff;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  animation: fadeInOut 3s forwards; /* Animação de fade in/out */
+}
+
+.message-box.info {
+  background-color: #007bff; /* Azul para informações */
+}
+
+.message-box.success {
+  background-color: #28a745; /* Verde para sucesso */
+}
+
+.message-box.error {
+  background-color: #dc3545; /* Vermelho para erro */
+}
+
+/* Keyframes para a animação da caixa de mensagem */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
+/* --- Grupo de Prompt de Login (Já tem conta?) --- */
+.login-prompt-group {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Permite quebrar a linha em telas pequenas */
+}
+
+.login-prompt-text,
+.login-prompt-link {
+  color: #6c757d;
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px; /* Espaçamento entre texto e link */
+}
+
+.login-prompt-link {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.login-prompt-link:hover {
+  text-decoration: underline;
+}
+
+
+/* --- Media Query para Responsividade em Dispositivos Móveis --- */
+@media (max-width: 768px) {
+  .cadastro-content-container {
+    margin-top: 20px; /* Reduz a margem superior em mobile */
+  }
+
+  .cadastro-form-card {
+    padding: 20px; /* Reduz o padding do card em mobile */
+  }
+
+  .login-prompt-group {
+    flex-direction: column; /* Empilha texto e link em mobile */
+    align-items: center;
+  }
+
+  .login-prompt-text,
+  .login-prompt-link {
+    margin: 5px 0; /* Ajusta a margem vertical em mobile */
+  }
+}

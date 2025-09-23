@@ -1,0 +1,36 @@
+*{
+    font-family: "Poppins", sans-serif;
+}
+
+html,body {
+    background-color:#dfe8ff;
+}
+
+/* No seu arquivo app.scss */
+
+.container-responsivo {
+    width: 90%; /* Porcentagem para ser responsivo */
+    max-width: 1200px; /* Largura máxima para não esticar demais em telas muito grandes */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 0 15px; /* Adiciona um pequeno padding nas laterais para não colar na borda em telas menores */
+}
+
+.bg-azul{
+    background-color:#dfe8ff;
+}
+
+.primary-color{
+    color:#0a3dbf
+}
+
+.secondary-color{
+    color: #dfe8ff;
+}
+
+.font-bold{
+      font-weight: 600; 
+}
+
+
+
+
