@@ -20,6 +20,11 @@ Ele funciona como uma plataforma digital onde é possível **visualizar, pesquis
 
 ---
 
+## 🚀 Demonstração
+🔗 [Acessar o projeto](https://seudominio.vercel.app) (https://conect-projetos-3ufo1ffhj-tacila-souzas-projects.vercel.app/)
+
+---
+
 ## ✨ Funcionalidades Principais
 - 🔍 **Pesquisa por projetos** através de barra de busca  
 - 🆕 **Exibição dos projetos mais recentes** na página inicial  
